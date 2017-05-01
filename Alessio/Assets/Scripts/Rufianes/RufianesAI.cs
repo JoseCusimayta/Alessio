@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class RufianesAI : MonoBehaviour {
 
     #region Variables
-    public GameObject Prefab_Bala, Prefab_Rufian;
+    public GameObject Prefab_Bala, Prefab_Rufian, Prefab_Explosion;
     public float frecDisparo = 1f;
     public Transform Empty_Rufianes;
     public int Vida_Rufianes=10;
@@ -44,6 +45,28 @@ public class RufianesAI : MonoBehaviour {
         Vector3 vector3 = new Vector3(x, y, z);
         Vida_Rufianes = 10;
         Instantiate(Prefab_Rufian, vector3, transform.rotation);
+    }
+
+    void OnTriggerEnter(Collider otherObject)
+    {
+        if (otherObject.tag == "Player")
+        {
+            //Instanciar al jugador, para sacar su funcion de morir para sacarlo de la memoria
+            Golpear player = (Golpear)otherObject.gameObject.GetComponent("Player");
+            //instanciar explosion
+            Instantiate(Prefab_Explosion, player.transform.position, player.transform.rotation);
+            //player.SetPositionAndSpeed();
+            //Destroy(gameObject);
+            if (player.golpe == false)
+            {
+                player.morir();
+            }
+            if (player.golpe)
+            { player.golpe = false; }
+            //SetPositionAndSpeed();
+
+            //DestroyInm(ExplosionPreFab);
+        }
     }
     #endregion
 
