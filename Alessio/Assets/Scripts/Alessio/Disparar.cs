@@ -11,11 +11,14 @@ public class Disparar : MonoBehaviour
     public string Arma;
     #endregion
 
-    // Use this for initialization
-    void Start()
+    //constructor de la clase
+    public Disparar(GameObject g, Transform t, string a)
     {
-
+        Prefab_Bala = g;
+        Empty_Alessio = t;
+        Arma = a;
     }
+  
 
     // Update is called once per frame
     void Update()
@@ -25,7 +28,7 @@ public class Disparar : MonoBehaviour
     }
 
     #region Funciones
-    void _Disparar()
+    public void _Disparar()
     {
         if (Input.GetMouseButtonDown(0)) //Al hacer clic derecho...
         {

@@ -9,22 +9,10 @@ public class Record : MonoBehaviour {
     public static int Lives = 10;
     #endregion
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    void OnGUI()
-    {
-        buildGUI();
-    }
+   
 
     #region Funciones
-    void buildGUI()
+    public void buildGUI()
     {
         GUI.contentColor = Color.red;
         GUI.Label(new Rect(0, 0, 120, 240), "Score=" + Score.ToString());

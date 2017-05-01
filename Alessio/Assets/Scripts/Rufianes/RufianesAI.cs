@@ -62,18 +62,20 @@ public class RufianesAI : MonoBehaviour {
             //Instanciar al enemigo, para sacar su funcion de morir para sacarlo de la memoria
             Alessio enemy = (Alessio)otherObject.gameObject.GetComponent("Alessio");
             //instanciar explosion
-            //Instantiate(Prefab_Explosion, player.transform.position, player.transform.rotation);
+            
             //player.SetPositionAndSpeed();
             //Destroy(gameObject);
             Debug.Log("Mi golpe vale: " + enemy.golpear.getGolpe());
             if (enemy.golpear.getGolpe() == false)
             {
+                Instantiate(Prefab_Explosion, enemy.transform.position, enemy.transform.rotation);
                 enemy.morir();
             }
             if (enemy.golpear.getGolpe())
             {
                 Debug.Log("Enemigo golpeado");
                 //enemy.morir();
+                Instantiate(Prefab_Explosion, this.transform.position, this.transform.rotation);
                 this.morir();
                 enemy.golpear.setGolpe(false);
                 //this.morir();
