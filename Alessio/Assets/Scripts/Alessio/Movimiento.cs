@@ -2,27 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movimiento : MonoBehaviour {
+public class Movimiento{
     //ctrl + r : Rename Refactoring
 
     #region Variables
-    public float Velocidad_EjeX = 5f;
-    public float Velocidad_EjeY = 5f;
+    private float Velocidad_EjeX = 5f;
+    private float Velocidad_EjeY = 5f;
+    private Transform transMovimiento;
     #endregion
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        _Movimiento();
-
+    //constructor de la clase
+    public Movimiento(float x,float y, Transform trans)
+    {
+        Velocidad_EjeX = x;
+        Velocidad_EjeY = y;
+        transMovimiento = trans;
     }
 
+    // Update is called once per frame
+    //void Update () {
+    //       _Movimiento();
+
+    //   }
+
     #region Funciones
-    void _Movimiento()
+    public void _Movimiento()
     {
         //Metodo conocido, posiblemente a ser cambiado por otro metodo/modo
         #region Asignación de variables para detectar y usar
@@ -61,8 +65,9 @@ public class Movimiento : MonoBehaviour {
             moveY = moveY * 2;
         }
         #endregion
-
-        transform.Translate(moveX * Time.deltaTime, moveY * Time.deltaTime, 0);//Ejecución del movimiento
+        Debug.Log("moveX=" + moveX);
+        //transform.Translate(moveX * Time.deltaTime, moveY * Time.deltaTime, 0);//Ejecución del movimiento
+        transMovimiento.Translate(moveX * Time.deltaTime, moveY * Time.deltaTime, 0);
     }
     #endregion
 }

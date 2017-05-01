@@ -361,9 +361,9 @@ GameObject:
   - component: {fileID: 1635385078}
   - component: {fileID: 1635385077}
   - component: {fileID: 1635385076}
-  - component: {fileID: 1635385080}
   - component: {fileID: 1635385081}
   - component: {fileID: 1635385082}
+  - component: {fileID: 1635385080}
   m_Layer: 0
   m_Name: Alessio
   m_TagString: Player
@@ -444,11 +444,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1635385075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbe93ec6e390fcb49a58c4631a5a3a78, type: 3}
+  m_Script: {fileID: 11500000, guid: 02a295c0e9ba986428430e6e74915219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocidad_EjeX: 5
-  Velocidad_EjeY: 5
+  Velocidad_EjeX: 10
+  Velocidad_EjeY: 10
 --- !u!114 &1635385081
 MonoBehaviour:
   m_ObjectHideFlags: 0

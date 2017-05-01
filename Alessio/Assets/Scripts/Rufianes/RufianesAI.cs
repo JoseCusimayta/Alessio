@@ -47,27 +47,44 @@ public class RufianesAI : MonoBehaviour {
         Instantiate(Prefab_Rufian, vector3, transform.rotation);
     }
 
+    //metodo que permite al enemigo morir destruyendo su sprite
+    public void morir()
+    {
+        Destroy(this.gameObject);
+    }
+
     void OnTriggerEnter(Collider otherObject)
     {
+        Debug.Log("Nos cruzamos con " + otherObject.tag);
         if (otherObject.tag == "Player")
         {
-            //Instanciar al jugador, para sacar su funcion de morir para sacarlo de la memoria
-            Golpear player = (Golpear)otherObject.gameObject.GetComponent("Player");
+            Debug.Log("Nos cruzamos con " + otherObject.name);
+            //Instanciar al enemigo, para sacar su funcion de morir para sacarlo de la memoria
+            Alessio enemy = (Alessio)otherObject.gameObject.GetComponent("Alessio");
             //instanciar explosion
-            Instantiate(Prefab_Explosion, player.transform.position, player.transform.rotation);
+            //Instantiate(Prefab_Explosion, player.transform.position, player.transform.rotation);
             //player.SetPositionAndSpeed();
             //Destroy(gameObject);
-            if (player.golpe == false)
+            Debug.Log("Mi golpe vale: " + enemy.golpear.getGolpe());
+            if (enemy.golpear.getGolpe() == false)
             {
-                player.morir();
+                enemy.morir();
             }
-            if (player.golpe)
-            { player.golpe = false; }
+            if (enemy.golpear.getGolpe())
+            {
+                Debug.Log("Enemigo golpeado");
+                //enemy.morir();
+                this.morir();
+                enemy.golpear.setGolpe(false);
+                //this.morir();
+            }
+        }
+            //if (player.golpe)
+            //{ player.golpe = false; }
             //SetPositionAndSpeed();
 
             //DestroyInm(ExplosionPreFab);
         }
-    }
-    #endregion
+        #endregion
 
-}
+    }
