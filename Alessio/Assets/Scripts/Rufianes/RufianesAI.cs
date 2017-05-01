@@ -8,7 +8,7 @@ public class RufianesAI : MonoBehaviour {
     public GameObject Prefab_Bala, Prefab_Rufian;
     public float frecDisparo = 1f;
     public Transform Empty_Rufianes;
-    public int Vida_Rufianes=5;
+    public int Vida_Rufianes=10;
     private float x, y, z;
     #endregion
 
@@ -38,12 +38,12 @@ public class RufianesAI : MonoBehaviour {
     }
     public void Nuevo_Rufian()
     {
-        x = Random.Range(10f, 15f);
+        x = Random.Range(10f, 20f);
         y = Random.Range(-4f, 5f);
         z = 0.0f;
         Vector3 vector3 = new Vector3(x, y, z);
+        Vida_Rufianes = 10;
         Instantiate(Prefab_Rufian, vector3, transform.rotation);
-        
     }
     #endregion
 
