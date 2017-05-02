@@ -10,16 +10,15 @@ public class Bala : MonoBehaviour {
     public GameObject Prefab_Explosion;
     #endregion
 
-    // Use this for initialization
+    #region Start & Update
     void Start () {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
         transform.Translate(Velocidad_EjeX * Time.deltaTime, 0, 0);
     }
-
+    #endregion
 
     private void OnTriggerEnter(Collider other)
     {
@@ -41,7 +40,6 @@ public class Bala : MonoBehaviour {
             }
             if (Target_Tag == "Player")
             {
-                Alessio player = (Alessio)other.gameObject.GetComponent("Alessio");
                 #region Accion para los Rufianes si el objetivo es Alessio
                
                 Record.Lives= Record.Lives-Pistola.Daño_Pistola; //Restamos la vida del jugador - el daño de la pistola

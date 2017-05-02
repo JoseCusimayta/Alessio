@@ -8,7 +8,8 @@ public class PeladoAI : MonoBehaviour {
     public GameObject Prefab_Bala;
     #endregion
 
-    // Use this for initialization
+
+    #region Start & Update
     void Start () {
 		
 	}
@@ -17,5 +18,6 @@ public class PeladoAI : MonoBehaviour {
 	void Update () {
 		
 	}
+    #endregion
 
 }

@@ -11,19 +11,14 @@ public class Movimiento{
     private Transform transMovimiento;
     #endregion
 
-    //constructor de la clase
+    #region Constructor
     public Movimiento(float x,float y, Transform trans)
     {
         Velocidad_EjeX = x;
         Velocidad_EjeY = y;
         transMovimiento = trans;
     }
-
-    // Update is called once per frame
-    //void Update () {
-    //       _Movimiento();
-
-    //   }
+    #endregion
 
     #region Funciones
     public void _Movimiento()
@@ -65,9 +60,8 @@ public class Movimiento{
             moveY = moveY * 2;
         }
         #endregion
-        Debug.Log("moveX=" + moveX);
-        //transform.Translate(moveX * Time.deltaTime, moveY * Time.deltaTime, 0);//Ejecución del movimiento
-        transMovimiento.Translate(moveX * Time.deltaTime, moveY * Time.deltaTime, 0);
+        
+        transMovimiento.Translate(moveX * Time.deltaTime, moveY * Time.deltaTime, 0);//Ejecución del movimiento
     }
     #endregion
 }

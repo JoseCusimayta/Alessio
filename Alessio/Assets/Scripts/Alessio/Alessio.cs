@@ -3,65 +3,62 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Alessio : MonoBehaviour {
+    
+    #region Variables
     public float Velocidad_EjeX = 5f;
     public float Velocidad_EjeY = 5f;
-    private Rigidbody rb;
-    public float jumpH = 5.0f;
-    private Movimiento movimiento;
-    public Golpear golpear;
-    public Disparar disparar;
-    public GameObject Prefab_Bala;
+    public float Velocidad_Salto = 5.0f;
+    public GameObject Prefab_Bala, Prefab_Golpe;
     public Transform Empty_Alessio;
-    public string Arma;
-    private Pistola pistola;
-    public Record record;
+    string Tipo_Arma;
+    Rigidbody rigiBody;
+    #endregion
+
+    #region Llamado a otras clases del proyecto
+    Movimiento movimiento;
+    Golpear golpear;
+    Pistola pistola;
+    Record record;
+    Ataque_Alessio ataque_Alessio;
+    #endregion
+
+
+    #region Start & Update
     // Use this for initialization
     void Start()
     {
-        //instanciamos a la clase movimiento, dandole los datos necesarios para que pueda brindar movimiento a Alessio
-        movimiento = new Movimiento(Velocidad_EjeX, Velocidad_EjeY, this.transform);
-        golpear = new Golpear(false);
+        #region Instanciamiento de Clases y Variables
+        Tipo_Arma = "Golpe"; //Definir arma por defecto
+        movimiento = new Movimiento(Velocidad_EjeX, Velocidad_EjeY, this.transform); //La clase movimiento necesita las velocidades del eje X e Y y el transform
+        ataque_Alessio = new Ataque_Alessio();
         record = new Record();
-        
-        disparar = new Disparar(Prefab_Bala, Empty_Alessio,Arma);
-        //movimiento._Movimiento(Velocidad_EjeX, Velocidad_EjeY,this.transform);
+        //ataque_Alessio = (Ataque_Alessio)gameObject.GetComponent("Ataque_Alessio");//Instanciamos la clase Ataque_Alessio
+        ataque_Alessio.setAtaque_Alessio(Prefab_Bala, Prefab_Golpe, Empty_Alessio, Tipo_Arma); //Le damos los datos al ataque  de Alessio
+        //record = (Record)gameObject.GetComponent("Record");//Instanciamos la clase Record
+        #endregion
     }
 
     // Update is called once per frame
     void Update()
-    {
-        //llamamos al metodo que dara movimiento a alessio, este metodo pertenece a la clase Movimiento
-        movimiento._Movimiento();
-        golpear.AtaqueGolpe();
-        disparar._Disparar();
-        Saltar();
-
+    {        
+        movimiento._Movimiento(); //Ejecutar el movimiento
+        Saltar();   //Para ejecutar e lsalto
+        ataque_Alessio.Atacar();    //Para ejecutar los ataques
 
     }
+    #endregion
 
-    //metodo que permite que alessio muera destruyendo su sprite
-    public void morir()
+    #region Funciones
+
+    
+    public void Agarrar_Pistola() //Metodo para que Alessio pueda agarrar la pistola y cambiar de arma
     {
-        Destroy(this.gameObject);
+        pistola.transform.position = Empty_Alessio.position; //La pistola adopta la posición del objeto vacío
+        pistola.transform.parent = Empty_Alessio.parent;   //La pistola y el objeto vacio comparten el mismo objeto padre = ALessio
+        Tipo_Arma = "Pistola"; //Cambiamos el tipo de arma
+        ataque_Alessio.setAtaque_Alessio(Prefab_Bala, Prefab_Golpe, Empty_Alessio, Tipo_Arma);  //Le damos los datos al ataque  de Alessio
     }
 
-    //metodo que carga la posicion y datos necesarios para la pistola, cuando la tome alessio, 
-    public void ejecutarArma()
-    {
-        pistola.transform.position = Empty_Alessio.position;
-        pistola.transform.parent = Empty_Alessio;
-        disparar.Arma = "Pistola";
-    }
-
-    void Saltar()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            rb = this.GetComponent<Rigidbody>();
-            rb.velocity = new Vector3(0, transform.position.y + jumpH, 0);
-            rb.useGravity = true;
-        }
-    }
 
     void OnGUI()
     {
@@ -69,23 +66,36 @@ public class Alessio : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Nos cruzamos con " + other.tag);
+    {       
         if (other.tag == "Pistola")
-        {
-            Debug.Log("Me encontre una pistola");
+        {           
             pistola = new Pistola();
             pistola = (Pistola)other.gameObject.GetComponent("Pistola");
-            ejecutarArma();
+            Agarrar_Pistola();
 
         }
         if (other.tag == "Suelo")
         {
-            Debug.Log("Golpe al suelo");
-            rb = this.GetComponent<Rigidbody>();
-            rb.velocity = new Vector3(0, 0, 0);
-            rb.useGravity = false;
+            rigiBody = this.GetComponent<Rigidbody>();
+            rigiBody.velocity = new Vector3(0, 0, 0);
+            rigiBody.useGravity = false;
 
         }
     }
+
+
+    void Saltar()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            rigiBody = this.GetComponent<Rigidbody>();
+            rigiBody.velocity = new Vector3(0, transform.position.y + Velocidad_Salto, 0);
+            rigiBody.useGravity = true;
+        }
+    }
+    public void morir()
+    {
+        Destroy(this.gameObject);   //Función para destruir al objeto Alessio
+    }
+    #endregion
 }
