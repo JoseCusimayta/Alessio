@@ -25,11 +25,12 @@ public class Golpear : MonoBehaviour {
             rufianesAI.Vida_Rufianes = rufianesAI.Vida_Rufianes - Daño_Golpe; //Se resta la vida del rufian - el daño de la pistola
             if (rufianesAI.Vida_Rufianes <= 0)
             {
-                Destroy(other.gameObject); //Destruir al rufian
+                //Destroy(other.gameObject); //Destruir al rufian
+                rufianesAI.morir();
                 Record.Score++; //Aumentamos en 1 el record
                 rufianesAI.Nuevo_Rufian();
             }
-            Destroy(gameObject); //Destruir bala
+            Destroy(gameObject); 
             #endregion
         }
     }

@@ -55,6 +55,7 @@ public class RufianesAI : MonoBehaviour
 
     public void morir()
     {
+        Instantiate(Prefab_Explosion, this.transform.position,this.transform.rotation);
         Destroy(this.gameObject); //Destruir el objeto Rufian
     }
 

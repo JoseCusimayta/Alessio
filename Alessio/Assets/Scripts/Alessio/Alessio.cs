@@ -8,7 +8,8 @@ public class Alessio : MonoBehaviour {
     public float Velocidad_EjeX = 5f;
     public float Velocidad_EjeY = 5f;
     public float Velocidad_Salto = 5.0f;
-    public GameObject Prefab_Bala, Prefab_Golpe;
+    public GameObject Prefab_Bala, Prefab_Golpe, Prefab_Explosion;
+    //public GameObject Prefab_Explosion;
     public Transform Empty_Alessio;
     string Tipo_Arma;
     Rigidbody rigiBody;
@@ -95,6 +96,7 @@ public class Alessio : MonoBehaviour {
     }
     public void morir()
     {
+        Instantiate(Prefab_Explosion, this.transform.position, this.transform.rotation);
         Destroy(this.gameObject);   //Función para destruir al objeto Alessio
     }
     #endregion

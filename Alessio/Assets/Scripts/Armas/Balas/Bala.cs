@@ -31,7 +31,9 @@ public class Bala : MonoBehaviour {
                 rufianesAI.Vida_Rufianes= rufianesAI.Vida_Rufianes - Pistola.Daño_Pistola; //Se resta la vida del rufian - el daño de la pistola
                 if (rufianesAI.Vida_Rufianes <= 0)
                 {
-                    Destroy(other.gameObject); //Destruir al rufian
+                    //Destroy(other.gameObject); //Destruir al rufian
+                    Debug.Log("Rufian muerto");
+                    rufianesAI.morir();
                     Record.Score++; //Aumentamos en 1 el record
                     rufianesAI.Nuevo_Rufian();
                 }
@@ -41,11 +43,13 @@ public class Bala : MonoBehaviour {
             if (Target_Tag == "Player")
             {
                 #region Accion para los Rufianes si el objetivo es Alessio
-               
+                Alessio player = (Alessio)other.gameObject.GetComponent("Alessio");
                 Record.Lives= Record.Lives-Pistola.Daño_Pistola; //Restamos la vida del jugador - el daño de la pistola
                 if (Record.Lives <= 0)
                 {
-                    Destroy(other.gameObject); //Destruir al jugador
+                    //llamamos al metodo morir que instancia la destruccion del objeto y una explosion 
+                    player.morir();
+                    //Destroy(other.gameObject); //Destruir al jugador
                 }
                 Destroy(gameObject); //Destruir bala
                 #endregion
