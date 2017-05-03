@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,6 @@ public class Alessio : MonoBehaviour {
     public float Velocidad_EjeY = 5f;
     public float Velocidad_Salto = 5.0f;
     public GameObject Prefab_Bala, Prefab_Golpe, Prefab_Explosion;
-    //public GameObject Prefab_Explosion;
     public Transform Empty_Alessio;
     string Tipo_Arma;
     Rigidbody rigiBody;
@@ -33,9 +33,7 @@ public class Alessio : MonoBehaviour {
         movimiento = new Movimiento(Velocidad_EjeX, Velocidad_EjeY, this.transform); //La clase movimiento necesita las velocidades del eje X e Y y el transform
         ataque_Alessio = new Ataque_Alessio();
         record = new Record();
-        //ataque_Alessio = (Ataque_Alessio)gameObject.GetComponent("Ataque_Alessio");//Instanciamos la clase Ataque_Alessio
         ataque_Alessio.setAtaque_Alessio(Prefab_Bala, Prefab_Golpe, Empty_Alessio, Tipo_Arma); //Le damos los datos al ataque  de Alessio
-        //record = (Record)gameObject.GetComponent("Record");//Instanciamos la clase Record
         #endregion
     }
 
@@ -43,8 +41,9 @@ public class Alessio : MonoBehaviour {
     void Update()
     {        
         movimiento._Movimiento(); //Ejecutar el movimiento
-        Saltar();   //Para ejecutar e lsalto
+        Saltar();   //Para ejecutar e lsalto      
         ataque_Alessio.Atacar();    //Para ejecutar los ataques
+        
 
     }
     #endregion
@@ -69,15 +68,14 @@ public class Alessio : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {       
         if (other.tag == "Pistola")
-        {           
-            pistola = new Pistola();
-            pistola = (Pistola)other.gameObject.GetComponent("Pistola");
+        {
+            pistola = other.gameObject.GetComponent<Pistola>();
             Agarrar_Pistola();
 
         }
         if (other.tag == "Suelo")
         {
-            rigiBody = this.GetComponent<Rigidbody>();
+            rigiBody = GetComponent<Rigidbody>();
             rigiBody.velocity = new Vector3(0, 0, 0);
             rigiBody.useGravity = false;
 
@@ -89,15 +87,15 @@ public class Alessio : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            rigiBody = this.GetComponent<Rigidbody>();
+            rigiBody = GetComponent<Rigidbody>();
             rigiBody.velocity = new Vector3(0, transform.position.y + Velocidad_Salto, 0);
             rigiBody.useGravity = true;
         }
     }
     public void morir()
     {
-        Instantiate(Prefab_Explosion, this.transform.position, this.transform.rotation);
-        Destroy(this.gameObject);   //Función para destruir al objeto Alessio
+        Instantiate(Prefab_Explosion, transform.position, transform.rotation);
+        Destroy(gameObject);   //Función para destruir al objeto Alessio
     }
     #endregion
 }

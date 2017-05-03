@@ -7,8 +7,6 @@ public class Player_Camara : MonoBehaviour {
 
     #region Variables
     public GameObject player; //Variable para guardar el objeto 
-
-
     private Vector3 offset; //Variable privada para guardar distancia con el jugador
     #endregion
 
@@ -18,7 +16,6 @@ public class Player_Camara : MonoBehaviour {
     }
 	
 	void Update () {
-       
         if (player)  //Verifica si existe el objeto o no
         {            
             transform.position = player.transform.position + offset; //Si el objeto existe, la camara se moverá con el jugador

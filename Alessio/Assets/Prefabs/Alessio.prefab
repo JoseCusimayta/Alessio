@@ -9,75 +9,76 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1272400798754982}
+  m_RootGameObject: {fileID: 1264135321808336}
   m_IsPrefabParent: 1
---- !u!1 &1216046247738802
+--- !u!1 &1264135321808336
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4746264990592650}
+  - component: {fileID: 4726594676399074}
+  - component: {fileID: 33112224315930904}
+  - component: {fileID: 65255390813909120}
+  - component: {fileID: 23241227380391146}
+  - component: {fileID: 54594874155319764}
+  - component: {fileID: 114630936198554998}
   m_Layer: 0
-  m_Name: Enmpty_Rufianes
-  m_TagString: Untagged
-  m_Icon: {fileID: 8220585740371884164, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1272400798754982
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4967511109582352}
-  - component: {fileID: 33283855758266524}
-  - component: {fileID: 65783060387026682}
-  - component: {fileID: 23002822151398358}
-  - component: {fileID: 114554926819956738}
-  m_Layer: 0
-  m_Name: Rufianes
-  m_TagString: Rufianes
+  m_Name: Alessio
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4746264990592650
+--- !u!1 &1581611261169970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4387739160548444}
+  m_Layer: 0
+  m_Name: Empty_Alessio
+  m_TagString: Untagged
+  m_Icon: {fileID: -982381405332843317, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4387739160548444
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1216046247738802}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -1, y: 0.27, z: 0}
+  m_GameObject: {fileID: 1581611261169970}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: 0.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4967511109582352}
+  m_Father: {fileID: 4726594676399074}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!4 &4967511109582352
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4726594676399074
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1272400798754982}
+  m_GameObject: {fileID: 1264135321808336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.27, y: 2.38, z: 0}
-  m_LocalScale: {x: 0.52452564, y: 1.0209748, z: 1}
+  m_LocalPosition: {x: -7.66, y: -1.29, z: 0}
+  m_LocalScale: {x: 0.57433987, y: 1.0707897, z: 1}
   m_Children:
-  - {fileID: 4746264990592650}
+  - {fileID: 4387739160548444}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23002822151398358
+--- !u!23 &23241227380391146
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1272400798754982}
+  m_GameObject: {fileID: 1264135321808336}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -85,7 +86,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e1d0e30c7f5dfe240bde2bdd451ecd3b, type: 2}
+  - {fileID: 2100000, guid: 095be1d16be4e044c8d3b14f2eaaaaed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,41 +105,57 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33283855758266524
+--- !u!33 &33112224315930904
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1272400798754982}
+  m_GameObject: {fileID: 1264135321808336}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65783060387026682
+--- !u!54 &54594874155319764
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1264135321808336}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65255390813909120
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1272400798754982}
+  m_GameObject: {fileID: 1264135321808336}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114554926819956738
+--- !u!114 &114630936198554998
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1272400798754982}
+  m_GameObject: {fileID: 1264135321808336}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48654ccd67a196a4c8a5ae6d2643d4ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aee27ae2241e994cacf3354c8ea6b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab_Bala: {fileID: 1587193686811718, guid: da0b148e3e2870f4cbe3043320a40d08,
+  Velocidad_EjeX: 6
+  Velocidad_EjeY: 6
+  Velocidad_Salto: 5
+  Prefab_Bala: {fileID: 1587193686811718, guid: c5218e3a29858524fb90fd1e945a49ba,
     type: 2}
-  Prefab_Rufian: {fileID: 1272400798754982}
-  Prefab_Explosion: {fileID: 100012, guid: 384371afbb4354cc9a3fc68eab303756, type: 2}
-  frecDisparo: 1
-  Empty_Rufianes: {fileID: 4746264990592650}
-  Vida_Rufianes: 10
-  player: {fileID: 0}
+  Prefab_Golpe: {fileID: 1161956906494282, guid: 9c90a6ca803e53f4ea086e50bfa9eca6,
+    type: 2}
+  Prefab_Explosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
+  Empty_Alessio: {fileID: 4387739160548444}

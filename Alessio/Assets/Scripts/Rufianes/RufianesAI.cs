@@ -10,27 +10,30 @@ public class RufianesAI : MonoBehaviour
     public GameObject Prefab_Bala, Prefab_Rufian, Prefab_Explosion;
     public float frecDisparo = 1f;
     public Transform Empty_Rufianes;
-    public int Vida_Rufianes = 10;
+    public int Vida_Rufianes = 6;
     float x, y, z;
+    public GameObject player;
+    float distanciaX, velocidad_rufian=1;
+    bool Alessio_Detectado = false;
+    float Intervalo_Ataque = 0;
     #endregion
 
 
     #region Start & Update
     void Start()
     {
-
     }
     
     void Update()
     {
-
+        DetectarAlessio();
     }
     #endregion
 
-
     private void OnBecameVisible()
     {
-        InvokeRepeating("Disparo", 0, frecDisparo); //Dispara desde el momento en que es visible para el jugador si es que Alessio esta cerca
+        // InvokeRepeating("Disparo", 0, frecDisparo);//Dispara desde el momento en que es visible para el jugador si es que Alessio esta cerca
+
     }
 
     private void OnBecameInvisible()
@@ -53,44 +56,28 @@ public class RufianesAI : MonoBehaviour
         Instantiate(Prefab_Rufian, vector3, transform.rotation); //Crear un nuevo rufian con los anteriores valores 
     }
 
+    void DetectarAlessio()
+    {
+        if (player!=null)
+        {
+            if (Vector3.Distance(player.transform.position, transform.position) < 10)
+            {
+                transform.position = Vector2.Lerp(transform.position, player.transform.position, velocidad_rufian * Time.deltaTime);
+                Intervalo_Ataque -= Time.deltaTime;
+                if (Intervalo_Ataque <= 0)
+                {
+                    Instantiate(Prefab_Bala, Empty_Rufianes.position, Empty_Rufianes.rotation);
+                    Intervalo_Ataque = 0.2f;
+                }
+            }
+        }
+    }
     public void morir()
     {
-        Instantiate(Prefab_Explosion, this.transform.position,this.transform.rotation);
-        Destroy(this.gameObject); //Destruir el objeto Rufian
+        Instantiate(Prefab_Explosion, transform.position,transform.rotation);
+        Destroy(gameObject); //Destruir el objeto Rufian
     }
-
-    void OnTriggerEnter(Collider otherObject)
-    {
-        /*
-        if (otherObject.tag == "Player")
-        {
-            //Instanciar al enemigo, para sacar su funcion de morir para sacarlo de la memoria
-            Alessio enemy = (Alessio)otherObject.gameObject.GetComponent("Alessio");
-            //instanciar explosion
-
-            //player.SetPositionAndSpeed();
-            //Destroy(gameObject);
-            if (enemy.golpear.getGolpe() == false)
-            {
-                Instantiate(Prefab_Explosion, enemy.transform.position, enemy.transform.rotation);
-                enemy.morir();
-            }
-            if (enemy.golpear.getGolpe())
-            {
-                Debug.Log("Enemigo golpeado");
-                //enemy.morir();
-                Instantiate(Prefab_Explosion, this.transform.position, this.transform.rotation);
-                this.morir();
-                enemy.golpear.setGolpe(false);
-                //this.morir();
-            }
-        }*/
-        //if (player.golpe)
-        //{ player.golpe = false; }
-        //SetPositionAndSpeed();
-
-        //DestroyInm(ExplosionPreFab);
-    }
+    
     #endregion
 
 }

@@ -24,7 +24,6 @@ public class Disparar : MonoBehaviour
     void Update()
     {
         _Disparar();
-
     }
 
     #endregion

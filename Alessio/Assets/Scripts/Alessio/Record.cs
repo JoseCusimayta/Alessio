@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Record : MonoBehaviour {
+public class Record {
 
     #region Variables
     public static int Score = 0;
     public static int Lives = 10;
     #endregion
-
-   
 
     #region Funciones
     public void buildGUI()

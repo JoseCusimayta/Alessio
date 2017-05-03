@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1adeaacd26712d44f870369376a98524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocidad_EjeX: 10
+  Velocidad_EjeX: 15
   Target_Tag: Player
   Prefab_Explosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
 --- !u!114 &114997403191710802
