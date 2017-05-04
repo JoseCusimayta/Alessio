@@ -28,8 +28,10 @@ public class Alessio : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        golpear = new Golpear();
+        pistola = new Pistola();
         #region Instanciamiento de Clases y Variables
-        Tipo_Arma = "Golpe"; //Definir arma por defecto
+        Tipo_Arma = golpear.getGolpear(); //Definir arma por defecto
         movimiento = new Movimiento(Velocidad_EjeX, Velocidad_EjeY, this.transform); //La clase movimiento necesita las velocidades del eje X e Y y el transform
         ataque_Alessio = new Ataque_Alessio();
         record = new Record();
@@ -55,7 +57,7 @@ public class Alessio : MonoBehaviour {
     {
         pistola.transform.position = Empty_Alessio.position; //La pistola adopta la posición del objeto vacío
         pistola.transform.parent = Empty_Alessio.parent;   //La pistola y el objeto vacio comparten el mismo objeto padre = ALessio
-        Tipo_Arma = "Pistola"; //Cambiamos el tipo de arma
+        Tipo_Arma = pistola.getPistola(); //Cambiamos el tipo de arma
         ataque_Alessio.setAtaque_Alessio(Prefab_Bala, Prefab_Golpe, Empty_Alessio, Tipo_Arma);  //Le damos los datos al ataque  de Alessio
     }
 

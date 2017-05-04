@@ -31,7 +31,7 @@ public class Disparar : MonoBehaviour
     #region Funciones
     public void _Disparar()
     {
-        Instantiate(Prefab_Bala, Empty_Alessio.position, Quaternion.identity); //y se crea el objeto dependiendo del arma, en este caso, una bala
+        Instantiate(Prefab_Bala, Empty_Alessio.position, Empty_Alessio.rotation); //y se crea el objeto dependiendo del arma, en este caso, una bala
     }
     #endregion
 

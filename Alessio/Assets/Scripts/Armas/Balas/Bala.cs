@@ -12,8 +12,8 @@ public class Bala : MonoBehaviour {
 
     #region Start & Update
     void Start () {
-		
-	}
+        Invoke("morir", 10);
+    }
 	
 	void Update () {
         transform.Translate(Velocidad_EjeX * Time.deltaTime, 0, 0);
@@ -35,7 +35,7 @@ public class Bala : MonoBehaviour {
                     Record.Score++; //Aumentamos en 1 el record
                     //rufianesAI.Nuevo_Rufian();
                 }
-                Destroy(gameObject); //Destruir bala
+                //Destroy(gameObject); //Destruir bala
                 #endregion
             }
             if (Target_Tag == "Player")
@@ -47,11 +47,16 @@ public class Bala : MonoBehaviour {
                 {                  
                     player.morir(); //llamamos al metodo morir que instancia la destruccion del objeto y una explosion                    
                 }
-                Destroy(gameObject); //Destruir bala
+               // Destroy(gameObject); //Destruir bala
                 #endregion
             }
         }
 
+    }
+
+    public void morir()
+    {
+        Destroy(gameObject);
     }
 
 

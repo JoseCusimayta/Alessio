@@ -18,10 +18,17 @@ public class RufianesAI : MonoBehaviour
     float Intervalo_Ataque = 0;
     #endregion
 
+    #region Clases auxiliares para la accion de disparo
+    Disparar disparoEnemigo;
+    Pistola pistolaEnemigo;
+    #endregion
 
     #region Start & Update
     void Start()
     {
+        pistolaEnemigo = new Pistola();
+        
+        disparoEnemigo = new Disparar(Prefab_Bala, Empty_Rufianes, pistolaEnemigo.getPistola());
     }
     
     void Update()
@@ -66,7 +73,9 @@ public class RufianesAI : MonoBehaviour
                 Intervalo_Ataque -= Time.deltaTime;
                 if (Intervalo_Ataque <= 0)
                 {
-                    Instantiate(Prefab_Bala, Empty_Rufianes.position, Empty_Rufianes.rotation);
+                    //Instantiate(Prefab_Bala, Empty_Rufianes.position, Empty_Rufianes.rotation);
+                    //solo basta con invocar la funcion de disparo
+                    disparoEnemigo._Disparar();
                     Intervalo_Ataque = 0.2f;
                 }
             }

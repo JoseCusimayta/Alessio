@@ -7,6 +7,7 @@ public class Golpear : MonoBehaviour {
 
     #region Variables
     public static int Daño_Golpe = 1;
+    public static string tipoArma = "Golpear";
     #endregion
 
     #region Start & Update
@@ -29,12 +30,16 @@ public class Golpear : MonoBehaviour {
                 Record.Score++; //Aumentamos en 1 el record
                 rufianesAI.Nuevo_Rufian();
             }
-            Destroy(gameObject); 
+            Destruir();
             #endregion
         }
     }
 
-    #region Funcioes
+    #region Funciones
+    public string getGolpear()
+    {
+        return tipoArma;
+    }
     void Destruir()
     {
         Destroy(gameObject);

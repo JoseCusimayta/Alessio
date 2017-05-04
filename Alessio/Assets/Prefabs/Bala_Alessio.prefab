@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 136980035190553824}
   - component: {fileID: 23789574304237976}
   - component: {fileID: 114179841040333344}
-  - component: {fileID: 114795214217219422}
   - component: {fileID: 54432217145898882}
   - component: {fileID: 82832137917866544}
   m_Layer: 0
@@ -194,17 +193,6 @@ MonoBehaviour:
   Velocidad_EjeX: 15
   Target_Tag: Rufianes
   Prefab_Explosion: {fileID: 100012, guid: 384371afbb4354cc9a3fc68eab303756, type: 2}
---- !u!114 &114795214217219422
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1587193686811718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da15d1ca1b44239459cd30207301ba74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &136980035190553824
 CapsuleCollider:
   m_ObjectHideFlags: 1
