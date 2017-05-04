@@ -12,9 +12,9 @@ public class Record {
     #region Funciones
     public void buildGUI()
     {
-        GUI.contentColor = Color.red;
-        GUI.Label(new Rect(0, 0, 120, 240), "Score=" + Score.ToString());
-        GUI.Label(new Rect(60, 0, 120, 240), "Lives=" + Lives.ToString());
+        GUI.Box(new Rect(10, 10, 100, 90), "Alessio");
+        GUI.Label(new Rect(35, 35, 100, 90), "Score=" + Score.ToString());
+        GUI.Label(new Rect(35, 65, 100, 90), "Lives=" + Lives.ToString());
     }
     #endregion
 }

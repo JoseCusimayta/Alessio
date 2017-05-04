@@ -8,10 +8,12 @@ public class Player_Camara : MonoBehaviour {
     #region Variables
     public GameObject player; //Variable para guardar el objeto 
     private Vector3 offset; //Variable privada para guardar distancia con el jugador
+    Record record;
     #endregion
 
     #region Start & Update
-    void Start () {                
+    void Start () {
+        record = new Record();
         offset = transform.position - player.transform.position; //La distancia original entre la camara y el jugador se mantendra para siempre...
     }
 	
@@ -21,5 +23,11 @@ public class Player_Camara : MonoBehaviour {
             transform.position = player.transform.position + offset; //Si el objeto existe, la camara se moverá con el jugador
         }
     }
+
+    void OnGUI()
+    {
+        record.buildGUI();
+    }
+
     #endregion
 }

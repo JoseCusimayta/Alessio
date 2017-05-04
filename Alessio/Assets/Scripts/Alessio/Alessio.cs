@@ -18,14 +18,12 @@ public class Alessio : MonoBehaviour {
     #region Llamado a otras clases del proyecto
     Movimiento movimiento;
     Golpear golpear;
-    Pistola pistola;
-    Record record;
+    Pistola pistola;    
     Ataque_Alessio ataque_Alessio;
     #endregion
 
 
     #region Start & Update
-    // Use this for initialization
     void Start()
     {
         golpear = new Golpear();
@@ -33,13 +31,11 @@ public class Alessio : MonoBehaviour {
         #region Instanciamiento de Clases y Variables
         Tipo_Arma = golpear.getGolpear(); //Definir arma por defecto
         movimiento = new Movimiento(Velocidad_EjeX, Velocidad_EjeY, this.transform); //La clase movimiento necesita las velocidades del eje X e Y y el transform
-        ataque_Alessio = new Ataque_Alessio();
-        record = new Record();
+        ataque_Alessio = new Ataque_Alessio();       
         ataque_Alessio.setAtaque_Alessio(Prefab_Bala, Prefab_Golpe, Empty_Alessio, Tipo_Arma); //Le damos los datos al ataque  de Alessio
         #endregion
     }
-
-    // Update is called once per frame
+    
     void Update()
     {        
         movimiento._Movimiento(); //Ejecutar el movimiento
@@ -61,11 +57,6 @@ public class Alessio : MonoBehaviour {
         ataque_Alessio.setAtaque_Alessio(Prefab_Bala, Prefab_Golpe, Empty_Alessio, Tipo_Arma);  //Le damos los datos al ataque  de Alessio
     }
 
-
-    void OnGUI()
-    {
-        record.buildGUI();
-    }
 
     void OnTriggerEnter(Collider other)
     {       

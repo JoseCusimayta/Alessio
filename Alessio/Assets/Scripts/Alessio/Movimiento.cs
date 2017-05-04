@@ -9,7 +9,10 @@ public class Movimiento{
     private float Velocidad_EjeX = 5f;
     private float Velocidad_EjeY = 5f;
     private Transform transMovimiento;
-    float Limite_Mapa = 15;
+    float Limite_Mapa_Top = 10;
+    float Limite_Mapa_Bottom = -10;
+    float Limite_Mapa_Right = 30;
+    float Limite_Mapa_Left = -10;
     #endregion
 
     #region Constructor
@@ -37,28 +40,28 @@ public class Movimiento{
         #region Movimiento Normal
         if (Key_W_Pressed)
         {
-            if (transMovimiento.position.y < Limite_Mapa)
+            if (transMovimiento.position.y < Limite_Mapa_Top)
             {
                 moveY = Velocidad_EjeY;
             }
         }
         if (Key_D_Pressed)
         {
-            if (transMovimiento.position.x < Limite_Mapa)
+            if (transMovimiento.position.x < Limite_Mapa_Right)
             {
                 moveX = Velocidad_EjeX;
             }
         }
         if (Key_A_Pressed)
         {
-            if (transMovimiento.position.x > -Limite_Mapa)
+            if (transMovimiento.position.x > Limite_Mapa_Left)
             {
                 moveX = -Velocidad_EjeX;
             }
         }
         if (Key_S_Pressed)
         {
-            if (transMovimiento.position.y > -Limite_Mapa)
+            if (transMovimiento.position.y > Limite_Mapa_Bottom)
             {
                 moveY = -Velocidad_EjeY;
             }

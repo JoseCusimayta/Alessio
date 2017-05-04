@@ -73,8 +73,6 @@ public class RufianesAI : MonoBehaviour
                 Intervalo_Ataque -= Time.deltaTime;
                 if (Intervalo_Ataque <= 0)
                 {
-                    //Instantiate(Prefab_Bala, Empty_Rufianes.position, Empty_Rufianes.rotation);
-                    //solo basta con invocar la funcion de disparo
                     disparoEnemigo._Disparar();
                     Intervalo_Ataque = 0.2f;
                 }
