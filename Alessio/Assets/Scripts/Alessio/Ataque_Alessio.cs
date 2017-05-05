@@ -44,9 +44,9 @@ public class Ataque_Alessio : MonoBehaviour
             {
                 if (Tipo_Arma == "Pistola") //Se obtiene el tipo de Arma...
                 {
-                    Instantiate(Prefab_Bala, Empty_Alessio.position, Quaternion.identity); //y se crea el objeto dependiendo del arma, en este caso, una bala
+                    Instantiate(Prefab_Bala, Empty_Alessio.position, Empty_Alessio.rotation); //y se crea el objeto dependiendo del arma, en este caso, una bala
                 }
-                else if (Tipo_Arma == "Golpe")
+                else if (Tipo_Arma == "Golpear")
                 {
                     Instantiate(Prefab_Golpe, Empty_Alessio.position, Empty_Alessio.rotation, Empty_Alessio.parent);
                 }
