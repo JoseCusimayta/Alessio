@@ -13,8 +13,6 @@ public class Movimiento{
     float Limite_Mapa_Bottom = -10;
     float Limite_Mapa_Right = 30;
     float Limite_Mapa_Left = -10;
-    Quaternion rotacion_left = Quaternion.Euler(0, 180, 0);
-    Quaternion rotacion_right = Quaternion.Euler(0, 0, 0);
     #endregion
 
     #region Constructor
@@ -51,7 +49,6 @@ public class Movimiento{
         {
             if (transMovimiento.position.x < Limite_Mapa_Right)
             {
-                transMovimiento.rotation = rotacion_right;
                 moveX = Velocidad_EjeX;
             }
         }
@@ -59,9 +56,7 @@ public class Movimiento{
         {
             if (transMovimiento.position.x > Limite_Mapa_Left)
             {
-                
-                transMovimiento.rotation =  rotacion_left;
-                moveX = Velocidad_EjeX;
+                moveX = -Velocidad_EjeX;
             }
         }
         if (Key_S_Pressed)
