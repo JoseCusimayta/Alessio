@@ -23,11 +23,11 @@ public class Player_Camara : MonoBehaviour {
             transform.position = player.transform.position + offset; //Si el objeto existe, la camara se moverá con el jugador
         }
     }
-
+    /*
     void OnGUI()
     {
         record.buildGUI();
-    }
+    }*/
 
     #endregion
 }

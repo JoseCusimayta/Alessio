@@ -77,6 +77,14 @@ public class RufianesAI : MonoBehaviour
                     Intervalo_Ataque = 0.2f;
                 }
             }
+            if (player.transform.position.x > transform.position.x)
+            {
+                transform.rotation = new Quaternion(0, 180, 0, 0);
+            }
+            else
+            {
+                transform.rotation = new Quaternion(0, 0, 0, 0);
+            }
         }
     }
     public void morir()
